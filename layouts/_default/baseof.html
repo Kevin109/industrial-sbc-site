@@ -4,19 +4,64 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <!-- Base styles for this site -->
   <link rel="stylesheet" href="/css/style.css"/>
+
+  <!-- Optional: set the browser theme color to match the header gradient mid-tone -->
+  <meta name="theme-color" content="#4a6c8c">
 </head>
-<body>
-  <header class="wrap">
-    <a href="/" class="logo">Industrial SBC</a>
-    <nav>
-      <a href="/articles/">Articles</a>
-      <a href="/about/">About</a>
-    </nav>
+
+<body class="is-industrial">
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="{{ .Site.Title }} Home">
+        <!-- Update the src to your final logo path -->
+        <img src="/android-chrome-512x512.png" alt="{{ .Site.Title }} logo" height="48" width="48" loading="eager">
+        <!-- <span class="brand-name">{{ .Site.Title }}</span> -->
+      </a>
+
+      <!-- Primary navigation with a bit more design feel -->
+      <nav class="nav">
+        <ul class="menu">
+
+          <!-- Resources dropdown -->
+          <li class="menu-item has-sub">
+            <a href="/articles/" class="menu-link">Articles</a>
+            <div class="dropdown">
+              <a class="dropdown-link" href="/articles/arm-sbc-vs-x86-sbc/">ARM vs x86</a>
+              <a class="dropdown-link" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">Power Consumption Comparison</a>
+              <!-- <a class="dropdown-link" href="/articles/why-arm-socs-dominate-low-power-industrial/">Low-Power Industrial Applications</a> -->
+            </div>
+          </li>
+
+          <li class="menu-item">
+            <a href="/about/" class="menu-cta">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main class="wrap">
-    {{ block "main" . }}{{ end }}
+
+  <!-- ===== Main ===== -->
+  <main class="page-wrap">
+    <div class="container">
+      {{ block "main" . }}{{ end }}
+    </div>
   </main>
-  <footer class="wrap foot">© {{ now.Year }} Industrial SBC</footer>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="foot-left">
+        <img src="/android-chrome-512x512.png" alt="{{ .Site.Title }} logo" height="24" width="24" loading="lazy">
+        <span>© {{ now.Year }} {{ .Site.Title }}. All rights reserved.</span>
+      </div>
+
+      <div class="foot-right">
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

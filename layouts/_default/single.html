@@ -1,8 +1,76 @@
-{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
 {{ define "main" }}
-  <article class="post">
-    <h1>{{ .Title }}</h1>
-    <p class="date">{{ .Date.Format "2006-01-02" }}</p>
-    {{ .Content }}
-  </article>
+<article class="post container">
+
+  <!-- Header -->
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-08-02" }}</time>
+      {{ with .ReadingTime }}<span class="dot">·</span><span>{{ . }} min read</span>{{ end }}
+      {{ with .Params.tags }}
+      <span class="dot">·</span>
+      <ul class="post-tags">
+        {{ range . }}<li>#{{ . }}</li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+    {{ with .Params.description }}
+      <p class="post-desc">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <!-- Optional cover -->
+  {{ with .Params.cover }}
+  <figure class="post-cover">
+    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+  </figure>
+  {{ end }}
+
+  <!-- Sidebar (left) + Content (right) -->
+  <div class="post-layout">
+
+    <!-- Sidebar FIRST -->
+    <aside class="post-aside">
+      {{ with .TableOfContents }}
+      <nav class="toc">
+        <div class="toc-title">On this page</div>
+        <div class="toc-body">
+          {{ . }}
+        </div>
+      </nav>
+      {{ end }}
+
+      <div class="sidebar-card">
+        <h3 class="side-title">Featured Guides</h3>
+        <a class="side-link" href="/articles/arm-sbc-vs-x86-sbc/">ARM vs x86</a>
+        <a class="side-link" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">Power Consumption</a>
+      </div>
+    </aside>
+
+    <!-- Content SECOND -->
+    <div class="post-body prose">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <!-- Footer nav -->
+  <footer class="post-footer">
+    {{ with .Params.tags }}
+    <div class="post-tags-row">
+      {{ range . }}<a class="tag-chip" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+
+    <nav class="post-nav">
+      <div class="post-prev">
+        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      </div>
+      <div class="post-next">
+        {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+      </div>
+    </nav>
+  </footer>
+</article>
 {{ end }}

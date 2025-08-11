@@ -1,14 +1,67 @@
-{{ define "title" }}{{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}{{ end }}
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
 {{ define "main" }}
-  <h1>{{ if .IsHome }}Latest Posts{{ else }}{{ .Title }}{{ end }}</h1>
-  <ul class="post-list">
-    {{ range .Paginator.Pages }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
-      </li>
-    {{ else }}
-      <li>No posts yet.</li>
+<section class="section-head">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with .Description }}
+  <p class="page-sub">{{ . }}</p>
+  {{ end }}
+</section>
+
+<section class="articles">
+  <div class="articles-grid">
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+
+    {{ $p := .Paginate ($pages.ByDate.Reverse) }}
+    {{ range $p.Pages }}
+    <article class="article-card">
+      <a class="card-link" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+
+      <header class="card-header">
+        <h2 class="card-title">{{ .Title }}</h2>
+        <div class="card-meta">
+          <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-08-02" }}</time>
+          {{ with .ReadingTime }}<span class="sep">·</span><span>{{ . }} min read</span>{{ end }}
+        </div>
+      </header>
+
+      <div class="card-body">
+        {{/* 优先用 params.description；没有就退回到 .Summary（去掉 HTML） */}}
+        {{- $desc := default (.Summary | plainify) .Params.description -}}
+        <p class="card-desc">{{ $desc | plainify | truncate 170 }}</p>
+
+        {{/* tags 也可能不存在，用 with 包一下 */}}
+        {{ with .Params.tags }}
+        <ul class="card-tags">
+          {{ range . }}<li><span>#{{ . }}</span></li>{{ end }}
+        </ul>
+        {{ end }}
+      </div>
+
+      <footer class="card-footer">
+        <span class="card-cta">Read →</span>
+      </footer>
+    </article>
     {{ end }}
-  </ul>
+  </div>
+
+  {{ if gt $p.TotalPages 1 }}
+  <nav class="pagination" aria-label="Pagination">
+    {{ with $p.Prev }}
+    <a class="page-btn" href="{{ .URL }}">← Newer</a>
+    {{ else }}
+    <span class="page-btn is-disabled">← Newer</span>
+    {{ end }}
+
+    <span class="page-count">Page {{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
+
+    {{ with $p.Next }}
+    <a class="page-btn" href="{{ .URL }}">Older →</a>
+    {{ else }}
+    <span class="page-btn is-disabled">Older →</span>
+    {{ end }}
+  </nav>
+  {{ end }}
+</section>
 {{ end }}

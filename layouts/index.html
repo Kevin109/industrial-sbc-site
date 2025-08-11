@@ -1,0 +1,75 @@
+{{ define "title" }}{{ .Site.Title }} – Industrial SBC Architecture Guides{{ end }}
+
+{{ define "main" }}
+<!-- Masthead -->
+<section class="masthead">
+  <div class="container">
+    <h1 class="masthead-title">Design Fanless, Reliable Industrial SBC Systems</h1>
+    <p class="masthead-sub">
+      Building a robust industrial SBC platform starts with two critical decisions: choosing the right CPU architecture and ensuring the system can operate within a sustainable thermal and power envelope. From factory automation and transportation to energy systems and remote monitoring, your hardware must remain stable in harsh environments and run 24/7 without failure.
+    </p>
+  </div>
+</section>
+
+<!-- Key Points (no links here—just scannable bullets) -->
+<section class="band band-keys">
+  <div class="container">
+    <ul class="pill-list">
+      <li>Fanless thermal envelopes for dust- and moisture-prone environments</li>
+      <li>Flexible OS options: Linux, Windows IoT, and Android</li>
+      <li>Long-term lifecycle and supply chain stability for embedded deployments</li>
+      <li>Performance tuned for vision processing, AI inference, and HMI interfaces</li>
+      <li>Comprehensive I/O: GbE, RS-232/422/485, CAN bus, USB, M.2, and multiple display outputs</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Core Guides (single appearance of the two core links) -->
+<section class="core-tiles">
+  <div class="container tiles">
+    <a class="tile" href="/articles/arm-sbc-vs-x86-sbc/">
+      <h2 class="tile-title">ARM vs x86</h2>
+      <p class="tile-desc">
+        A deep dive into how each architecture performs in industrial use cases. Compare CPU efficiency, power draw, OS ecosystem, hardware longevity, and total cost of ownership to make a well-informed choice.
+      </p>
+      <span class="tile-cta">Read →</span>
+    </a>
+    <a class="tile" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">
+      <h2 class="tile-title">Power Consumption</h2>
+      <p class="tile-desc">
+        Learn how to translate workload demands into real-world wattage. Plan heatsink capacity, enclosure airflow, and PSU headroom to achieve silent, maintenance-free operation over years of service.
+      </p>
+      <span class="tile-cta">Read →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Short Copy Block (no extra links to core pages) -->
+<section class="copy-block">
+  <div class="container">
+    <h3>From Requirements to a Stable Build</h3>
+    <p>
+      Every industrial SBC project begins with a clear understanding of workload requirements—whether that's running a high-resolution operator interface, processing camera feeds for machine vision, or managing complex control logic. Once the performance target is set, validate software and driver support across the planned OS, estimate thermal output under full load, and ensure your BOM aligns with component availability for the entire product lifecycle. Only then should you lock in the board, I/O configuration, and display interface to ensure a stable and supportable system.
+    </p>
+  </div>
+</section>
+
+<!-- Compact FAQ (no repeating core links) -->
+<section class="faq">
+  <div class="container">
+    <h3>Quick Answers</h3>
+    <details>
+      <summary>When is ARM the better fit?</summary>
+      <div>Ideal for energy-efficient designs in sealed, fanless enclosures. Suited to Android or lightweight Linux builds, and increasingly favored for AI inference with integrated NPUs.</div>
+    </details>
+    <details>
+      <summary>When is x86 the better fit?</summary>
+      <div>Best for workloads requiring Windows compatibility, support for legacy x86 applications, multi-stream video analytics, or heavy GPU acceleration.</div>
+    </details>
+    <details>
+      <summary>What to validate before enclosure design?</summary>
+      <div>Confirm worst-case power draw, steady-state surface temperatures, acceptable ambient ranges, and adequate PSU and EMI margins under continuous operation.</div>
+    </details>
+  </div>
+</section>
+{{ end }}
