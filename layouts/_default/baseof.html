@@ -1,16 +1,30 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
   <!-- Base styles for this site -->
-  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
   <!-- Optional: set the browser theme color to match the header gradient mid-tone -->
   <meta name="theme-color" content="#4a6c8c">
-  <meta name="google-site-verification" content="hxnAukzMShyKKGSo1TTm75sMidRGYA9WzDgrz_ZrngE" />
+  <meta name="google-site-verification" content="hxnAukzMShyKKGSo1TTm75sMidRGYA9WzDgrz_ZrngE" />  
+{{ if .IsHome }}<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://industrial-sbc.com/#organization",
+  "name": "Industrial SBC",
+  "url": "https://industrial-sbc.com/",
+  "logo": "https://industrial-sbc.com/android-chrome-512x512.png"
+}
+</script>{{ end }}
 </head>
 
 <body class="is-industrial">
@@ -32,7 +46,9 @@
             <a href="/articles/" class="menu-link">Articles</a>
             <div class="dropdown">
               <a class="dropdown-link" href="/articles/arm-sbc-vs-x86-sbc/">ARM vs x86</a>
-              <a class="dropdown-link" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">Power Consumption Comparison</a>
+              <a class="dropdown-link"
+                href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">Power Consumption
+                Comparison</a>
               <!-- <a class="dropdown-link" href="/articles/why-arm-socs-dominate-low-power-industrial/">Low-Power Industrial Applications</a> -->
             </div>
           </li>
@@ -65,4 +81,5 @@
     </div>
   </footer>
 </body>
+
 </html>
