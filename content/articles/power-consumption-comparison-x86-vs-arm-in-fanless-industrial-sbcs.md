@@ -48,6 +48,8 @@ Embedded x86 CPUs, such as Intel Atom, Celeron, Pentium Silver, or AMD Ryzen Emb
 
 x86 chips are generally **less power-efficient per watt** than ARM at low loads, but deliver **higher peak performance**.
 
+<img src="/images/amd-x86-board.webp" alt="amd Board"/>
+
 ---
 
 ## 3. Comparative Power Consumption in Real Deployments

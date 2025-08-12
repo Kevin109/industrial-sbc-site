@@ -15,6 +15,8 @@ ARM processors are built on the **Reduced Instruction Set Computing (RISC)** phi
 
 x86 processors, on the other hand, follow the **Complex Instruction Set Computing (CISC)** model. Popularized by **Intel** and **AMD**, this architecture offers a broad and mature software ecosystem, robust backward compatibility with older applications, and exceptional performance in computationally demanding workloads. While x86 processors have historically been associated with desktop PCs and servers, their embedded-grade variants—such as the **Intel Atom x7000E series** or **AMD Ryzen Embedded V2000**—are purpose-built for industrial deployments, offering extended availability and specialized I/O support.
 
+<img src="/images/arm-board.jpg" alt="ARM Board"/>
+
 ### Performance and Power Efficiency in Industrial Contexts
 
 Performance in industrial SBCs must be considered alongside **thermal and power budgets**. ARM-based SBCs excel in applications where power efficiency is paramount. A modern industrial ARM SoC like the **Rockchip RK3568**, **NXP i.MX8M Plus**, or **TI AM62x** can deliver smooth multitasking, hardware-accelerated graphics, and AI capabilities, all while consuming under 10 watts. This efficiency enables **fanless operation**, reducing both noise and maintenance requirements, and making these boards perfect for control cabinets, kiosk systems, or battery-powered devices.
