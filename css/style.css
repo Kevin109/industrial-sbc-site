@@ -625,3 +625,11 @@ body {
   .post-layout{ grid-template-columns:1fr; }
   .post-aside{ position:static; order:-1; margin-bottom:1rem; }
 }
+
+img{
+    max-width: 800px;
+}
+
+.post-body img{
+    max-width: 500px;
+}
