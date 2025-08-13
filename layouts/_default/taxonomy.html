@@ -5,11 +5,11 @@
 {{- end }}
 
 {{ define "main" }}
-<article class="section-taxonomy container">
+<article class="container">
 
   <!-- 顶部标题 + 简介（优先 tag/_index.md 里的 .Content 或 .Params.description） -->
-  <header class="section-head">
-    <h1 class="page-title">{{ .Title }}</h1>
+  <header class="section-head-a">
+    <h1 class="page-title-a">{{ .Title }}</h1>
     {{ $intro := "" }}
     {{ if .Content }}
       {{ $intro = .Content | plainify }}
@@ -23,58 +23,58 @@
   </header>
 
   <!-- 文章列表（分页） -->
-  <section class="guides-section">
+  <section class="guides-section-a">
     {{ $p := .Paginate (.Pages.ByDate.Reverse) }}
-    <div class="grid-guides">
+    <div class="grid-guides-a">
       {{ range $p.Pages }}
-      <article class="guide-card">
-        <a class="card-anchor" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+      <article class="guide-card-a">
+        <a class="card-anchor-a" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
 
         {{ with .Params.cover }}
-        <figure class="card-media">
+        <figure class="card-media-a">
           <img src="{{ . | relURL }}" alt="{{ $.Title }}">
         </figure>
         {{ end }}
 
-        <header class="card-header">
-          <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <div class="card-meta">
+        <header class="card-header-a">
+          <h2 class="card-title-a"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <div class="card-meta-a">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
             {{ with .ReadingTime }}<span class="sep">·</span><span>{{ . }} min read</span>{{ end }}
           </div>
         </header>
 
-        <div class="card-body">
+        <div class="card-body-a">
           {{- $desc := default (.Summary | plainify) .Params.description -}}
-          <p class="card-desc">{{ $desc | plainify | truncate 160 }}</p>
+          <p class="card-desc-a">{{ $desc | plainify | truncate 160 }}</p>
           {{ with .Params.tags }}
-          <ul class="card-tags">
+          <ul class="card-tags-a">
             {{ range . }}<li>#{{ . }}</li>{{ end }}
           </ul>
           {{ end }}
         </div>
 
-        <footer class="card-footer">
-          <span class="card-cta">Read →</span>
+        <footer class="card-footer-a">
+          <span class="card-cta-a">Read →</span>
         </footer>
       </article>
       {{ end }}
     </div>
 
     {{ if gt $p.TotalPages 1 }}
-    <nav class="pagination" aria-label="Pagination">
+    <nav class="pagination-a" aria-label="Pagination">
       {{ with $p.Prev }}
-        <a class="page-btn" href="{{ .URL }}">← Newer</a>
+        <a class="page-btn-a" href="{{ .URL }}">← Newer</a>
       {{ else }}
-        <span class="page-btn is-disabled">← Newer</span>
+        <span class="page-btn-a is-disabled-a">← Newer</span>
       {{ end }}
 
-      <span class="page-count">Page {{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
+      <span class="page-count-a">Page {{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
 
       {{ with $p.Next }}
-        <a class="page-btn" href="{{ .URL }}">Older →</a>
+        <a class="page-btn-a" href="{{ .URL }}">Older →</a>
       {{ else }}
-        <span class="page-btn is-disabled">Older →</span>
+        <span class="page-btn-a is-disabled-a">Older →</span>
       {{ end }}
     </nav>
     {{ end }}
@@ -82,23 +82,23 @@
 
   <!-- 仅在“标签”页追加核心页内链 -->
   {{ if eq .Data.Singular "tag" }}
-  <section class="related-core">
-    <h2 class="page-title" style="font-size:20px;margin-top:22px;">Recommended Guides</h2>
-    <div class="core-grid">
-      <a class="core-card" href="/articles/arm-sbc-vs-x86-sbc/">
-        <h3 class="core-title">ARM vs x86</h3>
-        <p class="core-desc">Architecture, performance-per-watt, OS ecosystem, lifecycle—an engineer’s view.</p>
-        <span class="core-cta">Read →</span>
+  <section class="related-core-a">
+    <h2 class="page-title-a" style="font-size:20px;margin-top:22px;">Recommended Guides</h2>
+    <div class="core-grid-a">
+      <a class="core-card-a" href="/articles/arm-sbc-vs-x86-sbc/">
+        <h3 class="core-title-a">ARM vs x86</h3>
+        <p class="core-desc-a">Architecture, performance-per-watt, OS ecosystem, lifecycle—an engineer’s view.</p>
+        <span class="core-cta-a">Read →</span>
       </a>
-      <a class="core-card" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">
-        <h3 class="core-title">Power Consumption</h3>
-        <p class="core-desc">Turn workloads into watts, size heatsinks/enclosures/PSUs for 24/7 duty.</p>
-        <span class="core-cta">Read →</span>
+      <a class="core-card-a" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">
+        <h3 class="core-title-a">Power Consumption</h3>
+        <p class="core-desc-a">Turn workloads into watts, size heatsinks/enclosures/PSUs for 24/7 duty.</p>
+        <span class="core-cta-a">Read →</span>
       </a>
-      <a class="core-card" href="/articles/why-arm-socs-dominate-low-power-industrial/">
-        <h3 class="core-title">Low-Power ARM SoCs</h3>
-        <p class="core-desc">Why ARM dominates in sealed, fanless, long-life industrial deployments.</p>
-        <span class="core-cta">Read →</span>
+      <a class="core-card-a" href="/articles/why-arm-socs-dominate-low-power-industrial/">
+        <h3 class="core-title-a">Low-Power ARM SoCs</h3>
+        <p class="core-desc-a">Why ARM dominates in sealed, fanless, long-life industrial deployments.</p>
+        <span class="core-cta-a">Read →</span>
       </a>
     </div>
   </section>
