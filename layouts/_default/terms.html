@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="section-head">
+  <h1 class="page-title">{{ .Title }}</h1>
+</section>
+
+<section class="guides-section">
+  <div class="grid-guides">
+    {{ range .Pages }}
+      <article class="guide-card">
+        <a href="{{ .RelPermalink }}">
+          <h2>{{ .Title }}</h2>
+        </a>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+{{ if eq .Data.Singular "tag" }}
+  {{ partial "core-tiles.html" . }}
+{{ end }}
+{{ end }}
