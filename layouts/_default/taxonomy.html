@@ -80,29 +80,9 @@
     {{ end }}
   </section>
 
-  <!-- 仅在“标签”页追加核心页内链 -->
   {{ if eq .Data.Singular "tag" }}
-  <section class="related-core-a">
-    <h2 class="page-title-a" style="font-size:20px;margin-top:22px;">Recommended Guides</h2>
-    <div class="core-grid-a">
-      <a class="core-card-a" href="/articles/arm-sbc-vs-x86-sbc/">
-        <h3 class="core-title-a">ARM vs x86</h3>
-        <p class="core-desc-a">Architecture, performance-per-watt, OS ecosystem, lifecycle—an engineer’s view.</p>
-        <span class="core-cta-a">Read →</span>
-      </a>
-      <a class="core-card-a" href="/articles/power-consumption-comparison-x86-vs-arm-in-fanless-industrial-sbcs/">
-        <h3 class="core-title-a">Power Consumption</h3>
-        <p class="core-desc-a">Turn workloads into watts, size heatsinks/enclosures/PSUs for 24/7 duty.</p>
-        <span class="core-cta-a">Read →</span>
-      </a>
-      <a class="core-card-a" href="/articles/why-arm-socs-dominate-low-power-industrial/">
-        <h3 class="core-title-a">Low-Power ARM SoCs</h3>
-        <p class="core-desc-a">Why ARM dominates in sealed, fanless, long-life industrial deployments.</p>
-        <span class="core-cta-a">Read →</span>
-      </a>
-    </div>
-  </section>
-  {{ end }}
+  {{ partial "core-tiles.html" . }}
+{{ end }}
 
 </article>
 {{ end }}
