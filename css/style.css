@@ -673,6 +673,7 @@ img{
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
+  font-size: 16px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.25s ease;
 }
@@ -680,6 +681,12 @@ img{
 .guide-card-a:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.guide-card-a a{
+  text-decoration: none;
+  font-size: 14px;
+  margin: 10px;
 }
 
 .card-anchor-a {
@@ -839,4 +846,109 @@ img{
   font-weight: 600;
   font-size: 0.9rem;
   color: #2563eb;
+}
+
+/* 外层区块 */
+.guides-section-b {
+  margin-top: 1.25rem;
+}
+
+/* 自适应卡片网格 */
+.grid-guides-b {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* 单张卡片 */
+.guide-card-b {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.guide-card-b:hover {
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, .08);
+}
+
+/* 让整卡可点击的透明锚点 */
+.card-anchor-b {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* 卡片头部 */
+.card-header-b {
+  padding: 14px 14px 0;
+}
+
+.card-title-b {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.card-title-b a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title-b a:hover {
+  color: #2563eb;
+}
+
+.card-meta-b {
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+/* 正文摘要 */
+.card-body-b {
+  padding: 10px 14px 0;
+}
+
+.card-desc-b {
+  margin: 0 0 10px;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* 底部 CTA */
+.card-footer-b {
+  padding: 10px 14px 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-cta-b {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #2563eb;
+}
+
+.guide-card-b:hover .card-cta-b {
+  color: #1d4ed8;
+}
+
+/* 响应式微调 */
+@media (max-width: 980px) {
+  .grid-guides-b {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .grid-guides-b {
+    grid-template-columns: 1fr;
+  }
 }
