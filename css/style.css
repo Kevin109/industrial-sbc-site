@@ -652,7 +652,7 @@ img{
   font-size: 1rem;
   line-height: 1.6;
   color: #4b5563;
-  max-width: 720px;
+  width: 100%;
 }
 
 /* 文章列表卡片 */
@@ -662,7 +662,7 @@ img{
 
 .grid-guides-a {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 1.25rem;
 }
 
