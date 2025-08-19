@@ -123,4 +123,6 @@ The dominance of ARM SoCs in low-power industrial applications is the result of 
 
 For OEMs, the benefits go beyond just energy savings—they also translate into **smaller enclosures**, **lower cooling requirements**, **reduced maintenance**, and **faster time-to-market** thanks to mature Linux and Android support.
 
+If you’d like to explore more resources and updates on embedded SBCs, pls visit [the embedded SBCs profile](https://linktr.ee/embedded_sbc).
+
 ---
