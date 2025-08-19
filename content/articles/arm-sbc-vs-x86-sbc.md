@@ -47,6 +47,8 @@ For **low-power IoT gateways, smart HMI panels, and distributed sensor nodes**, 
 
 For **high-throughput industrial PCs, machine vision systems, and AI-assisted production line monitoring**, x86 SBCs still hold the advantage. Their ability to run demanding Windows or Linux workloads, combined with multi-core CPU performance and support for large amounts of RAM, makes them the go-to choice for compute-heavy tasks.
 
+If your industrial project also requires **high-quality display integration**, such as HMI panels or control terminals, then display technology plays a role as well. For example, understanding the trade-offs between **IPS and OLED displays** is just as important as choosing the right processor. You can explore a detailed guide here: [IPS vs OLED for Embedded & Industrial Displays](https://ips-displays.com/guides/ips-vs-oled-for-embedded-displays/).
+
 ---
 
 ### Final Thoughts
